@@ -1,18 +1,16 @@
 <html>
 <header></header>
 <body>
-<form action="http://www.cs.tut.fi/cgi-bin/run/~jkorpela/echo.cgi"
-enctype="multipart/form-data" method="post">
-<p>
-Type some text (if you like):<br>
-<input type="text" name="textline" size="30">
-</p>
-<p>
-Please specify a file, or a set of files:<br>
-<input type="file" name="datafile" size="40">
-</p>
-<div>
-<input type="submit" value="Send">
-</div>
-</form>
+
+<p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+
+<button onclick="myFunction()">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
 </body></html>
