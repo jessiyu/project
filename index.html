@@ -1,8 +1,21 @@
 <html>
-<header></header>
-<body>
+<header>ECE1548 Project</header>
 
-<p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+<body>
+<form action="http://www.cs.tut.fi/cgi-bin/run/~jkorpela/echo.cgi"
+enctype="multipart/form-data" method="post">
+<p>
+Type some text (if you like):<br>
+<input type="text" name="textline" size="30">
+</p>
+<p>
+Please specify a file, or a set of files:<br>
+<input type="file" name="datafile" size="40">
+</p>
+<div>
+<input type="submit" value="Send">
+</div>
+</form>
 
 <button onclick="myFunction()">Click me</button>
 
@@ -10,7 +23,7 @@
 
 <script>
 function myFunction() {
-    document.getElementById("demo").innerHTML = "Hello World";
+    document.getElementById("demo").innerHTML = "Upload Successfully!";
 }
 </script>
 </body></html>
