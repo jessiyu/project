@@ -1,5 +1,6 @@
 <?php
 $target_dir = "uploads/";
+$compressrate = $_POST["compressrate"];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -42,6 +43,7 @@ if ($uploadOk == 0) {
     }
 }
 
-exec('php copy.php');
+echo shell_exec("python /home/ubuntu/project/compressimage.py $compressrate $target_file");
+echo shell_exec("cp $target_file /var/www/downloads");
 
 ?>
