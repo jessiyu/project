@@ -41,5 +41,7 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
-exec("php copy.php");
+
+exec('php copy.php');
+
 ?>
