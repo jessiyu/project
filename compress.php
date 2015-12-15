@@ -47,13 +47,14 @@ echo shell_exec("python /home/ubuntu/project/compressimage.py $compressrate $tar
 echo shell_exec("cp $target_file /var/www/downloads");
 
 $downloadfile = '/var/www/downloads/'.$_FILES["fileToUpload"]["name"];
+$filename = $_FILES["fileToUpload"]["name"];
 
 if(!$downloadfile){ // file does not exist
     die('file not found');
 } else {
     header("Cache-Control: public");
     header("Content-Description: File Transfer");
-    header("Content-Disposition: attachment; filename=$downloadfile");
+    header("Content-Disposition: attachment; filename=$filename");
     header("Content-Transfer-Encoding: binary");
     ob_clean();
     flush();
