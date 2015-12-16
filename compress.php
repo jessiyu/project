@@ -62,5 +62,8 @@ if(!$downloadfile){ // file does not exist
     readfile($downloadfile);
 }
 
+echo shell_exec("rm $target_file");
+echo shell_exec("rm /var/www/downloads/$filename");
+
 
 ?>
