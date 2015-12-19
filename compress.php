@@ -62,86 +62,61 @@ if(!$downloadfile){ // file does not exist
     readfile($downloadfile);
 }
 // Create MySQL login values and
-
 // set them to your login information.
 
-$username = "YourUserName";
-
-$password = "YourPassword";
-
-$host = "localhost";
-
+$username = "admin";
+$password = "admin";
+$host = "10.20.13.31";
 $database = "binary";
 
-
 // Make the connect to MySQL or die
-
 // and display an error.
 
 $link = mysql_connect($host, $username, $password);
-
 if (!$link) {
-
 die('Could not connect: ' . mysql_error());
-
 }
 
 // Select your database
 mysql_select_db ($database);
 
 // Make sure the user actually
-
 // selected and uploaded a file
 
 if (isset($_FILES['fileToUpload']) && $_FILES['fileToUpload']['size'] > 0) {
 
-
 // Temporary file name stored on the server
-
 $tmpName = $_FILES['fileToUpload']['tmp_name'];
 
-
 // Read the file
-
 $fp = fopen($tmpName, 'r');
-
 $data = fread($fp, filesize($tmpName));
-
 $data = addslashes($data);
 
 fclose($fp);
 
-
-
 // Create the query and insert
-
 // into our database.
 
 $query = "INSERT INTO tbl_images ";
-
 $query .= "(fileToUpload) VALUES ('$data')";
-
 $results = mysql_query($query, $link);
 
 
 // Print results
-
 print "Thank you, your file has been uploaded.";
-
 
 }
 
 else {
-
 print "No image selected/uploaded";
-
 }
 
 
 // Close our MySQL Link
-
 mysql_close($link);
 
+//remove the file from webserver
 echo shell_exec("rm $target_file");
 echo shell_exec("rm /var/www/downloads/$filename");
 
