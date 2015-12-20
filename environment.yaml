@@ -1,2 +1,2 @@
 resource_registry:
-  OS::Nova::Myserver: myserver.yaml
+  OS::Nova::Server::Myserver: myserver.yaml
